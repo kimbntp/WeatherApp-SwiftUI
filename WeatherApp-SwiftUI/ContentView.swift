@@ -10,6 +10,9 @@ import SwiftUI
 
 
 struct ContentView: View {
+    
+    @State private var isNight = false
+    
     let list =
     [
         [
@@ -23,10 +26,10 @@ struct ContentView: View {
     ]
     var body: some View {
         ZStack {
-            BackgroundView(topColor: .blue, bottomColor: Color("lightBlue"))
+            BackgroundView(isNight: $isNight)
             VStack {
                 CityTextView(cityName: "Chiang Mai")
-                CurrentWeatherView(currentWeather: "cloud.sun.fill", currentTemperature: 25)
+                CurrentWeatherView(currentWeather: isNight ? "moon.fill" : "cloud.sun.fill", currentTemperature: 25)
                 HStack(spacing:20) {
                     Spacer()
                     WeatherDayView(
@@ -59,7 +62,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Button {
-                    print("tapped")
+                    isNight.toggle()
                 } label: {
                     Text("Change Day Time")
                         .font(.system(size: 16, weight: .heavy))
@@ -105,11 +108,13 @@ struct WeatherDayView: View {
 
 struct BackgroundView: View {
     
-    var topColor: Color
-    var bottomColor: Color
+    @Binding var isNight: Bool
+    
+//    var topColor: Color
+//    var bottomColor: Color
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]),
+        LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")]),
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
         .edgesIgnoringSafeArea(.all)
