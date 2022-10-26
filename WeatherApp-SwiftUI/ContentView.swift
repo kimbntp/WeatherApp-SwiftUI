@@ -15,14 +15,11 @@ struct ContentView: View {
     
     let list =
     [
-        [
-            "days" : "Tue",
-            "weather" : "cloud.sun.fill",
-        ],
-        [
-            "days" : "Wed",
-            "weather" : "cloud.sun.fill",
-        ]
+        weatherOfEachDay(dayOfWeek: "TUE", weather: "cloud.sun.fill", temperature: 29),
+        weatherOfEachDay(dayOfWeek: "WED", weather: "cloud.sun.fill", temperature: 27),
+        weatherOfEachDay(dayOfWeek: "THU", weather: "cloud.drizzle.fill", temperature: 22),
+        weatherOfEachDay(dayOfWeek: "FRI", weather: "cloud.fill", temperature: 25),
+        weatherOfEachDay(dayOfWeek: "SAT", weather: "sun.max.fill", temperature: 32)
     ]
     var body: some View {
         ZStack {
@@ -32,31 +29,9 @@ struct ContentView: View {
                 CurrentWeatherView(currentWeather: isNight ? "moon.fill" : "cloud.sun.fill", currentTemperature: 25)
                 HStack(spacing:20) {
                     Spacer()
-                    WeatherDayView(
-                        dayOfWeek: "TUE",
-                        imageName: "cloud.sun.fill",
-                        temperature: 29
-                    )
-                    WeatherDayView(
-                        dayOfWeek: "WED",
-                        imageName: "cloud.drizzle.fill",
-                        temperature: 23
-                    )
-                    WeatherDayView(
-                        dayOfWeek: "THU",
-                        imageName: "cloud.sun.fill",
-                        temperature: 29
-                    )
-                    WeatherDayView(
-                        dayOfWeek: "FRI",
-                        imageName: "cloud.fill",
-                        temperature: 27
-                    )
-                    WeatherDayView(
-                        dayOfWeek: "SAT",
-                        imageName: "cloud.rain.fill",
-                        temperature: 22
-                    )
+                    ForEach(list, id: \.id) { data in
+                        WeatherDayView(dayOfWeek: data.dayOfWeek, imageName: data.weather, temperature: data.temperature)
+                    }
                     Spacer()
                     }
                 Spacer()
@@ -74,6 +49,13 @@ struct ContentView: View {
             }
         }
     }
+}
+
+struct weatherOfEachDay {
+    let id = UUID()
+    let dayOfWeek : String
+    let weather : String
+    let temperature: Int
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -150,3 +132,4 @@ struct CurrentWeatherView: View {
         .padding(.bottom, 40)
     }
 }
+

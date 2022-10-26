@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8310F51290964640061E264 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8310F50290964640061E264 /* test.swift */; };
 		D8D8E9B629052E6000EB02FB /* WeatherApp_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D8E9B529052E6000EB02FB /* WeatherApp_SwiftUIApp.swift */; };
 		D8D8E9B829052E6000EB02FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D8E9B729052E6000EB02FB /* ContentView.swift */; };
 		D8D8E9BA29052E6600EB02FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D8E9B929052E6600EB02FB /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8310F50290964640061E264 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		D8D8E9B229052E6000EB02FB /* WeatherApp-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeatherApp-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D8E9B529052E6000EB02FB /* WeatherApp_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApp_SwiftUIApp.swift; sourceTree = "<group>"; };
 		D8D8E9B729052E6000EB02FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		D8D8E9A929052E6000EB02FB = {
 			isa = PBXGroup;
 			children = (
+				D8310F50290964640061E264 /* test.swift */,
 				D8D8E9B429052E6000EB02FB /* WeatherApp-SwiftUI */,
 				D8D8E9C529052E6600EB02FB /* WeatherApp-SwiftUITests */,
 				D8D8E9CF29052E6600EB02FB /* WeatherApp-SwiftUIUITests */,
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D8E9B829052E6000EB02FB /* ContentView.swift in Sources */,
+				D8310F51290964640061E264 /* test.swift in Sources */,
 				D8D8E9B629052E6000EB02FB /* WeatherApp_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
